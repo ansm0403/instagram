@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "./components/navbar";
+import AuthContext from "./context/AuthContext";
+import SWRConfigContext from "./context/SWRConfigContext";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,10 +20,16 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.className}>
       <body  className = 'w-full max-w-screen-xl overflow-auto mx-auto'>
-        <header className = 'sticky top-0 bg-white z-10 border-b'>
-          <Navbar></Navbar>
-        </header>
-        {children}  
+        <AuthContext>
+          <header className = 'sticky top-0 bg-white z-10 border-b'>
+            <Navbar></Navbar>
+          </header>
+          <main className = 'w-full flex justify-center bg-neutral-50 min-h-full'>
+            <SWRConfigContext>
+              {children}
+            </SWRConfigContext>
+          </main>  
+        </AuthContext>
       </body>
     </html>
   );
