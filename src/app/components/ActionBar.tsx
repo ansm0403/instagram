@@ -4,9 +4,9 @@ import BookmarkIcon from '../ui/icons/BookmarkIcon'
 import { parseDate } from '../util/date'
 
 type Props = {
-    likes : string;
+    likes : string[];
     username : string;
-    text : string;
+    text? : string;
     createdAt : string;
 }
 
@@ -21,10 +21,12 @@ export default function ActionBar(post : Props) {
             <p className='text-sm font-bold mb-2'>
                 {`${post.likes?.length ?? 0} ${post.likes?.length > 1 ? 'likes' : 'like'}`}
             </p>
-            <p>
-                <span className='font-bold mr-1'>{post.username}</span>
-                {post.text}
-            </p>
+            {post.text && (
+                <p>
+                    <span className='font-bold mr-1'>{post.username}</span>
+                    {post.text}
+                </p>
+            )}
             <p className='text-xs text-neutral-500 uppercase my-4'>{parseDate(post.createdAt)}</p>
             
         </div>

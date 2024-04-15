@@ -8,7 +8,7 @@ import PostListCard from './PostListCard'
 
 export default function PostList() {
   const {data : posts, isLoading} = useSWR<Post[]>('/api/posts')
-  console.log(posts)
+  // console.log(posts)
   return (
     <section>
       {isLoading && (

@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <div className = 'flex justify-between items-center px-6'>
             <Link href = "/">
-              <h1>instagram</h1>
+              <h1 className = 'font-bold text-[30px]'>instagram</h1>
             </Link>
             <nav>
               <ul className = 'flex gap-4 p-4 items-center'>
