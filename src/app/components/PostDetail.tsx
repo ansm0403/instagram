@@ -1,19 +1,19 @@
 import React from 'react'
-import { FullPost, Post } from '../model/post'
-import useSWR from 'swr';
+import {  Post } from '../model/post'
 import Image from 'next/image';
 import PostUser from './PostUser';
 import ActionBar from './ActionBar';
-import CommentForm from './CommentForm';
 import Avatar from './Avatar';
+import useFullPost from '../hook/post';
+
 
 type Props = {
     post : Post;
 }
 
 export default function PostDetail({post} : Props) {
-    const {id, userImage, username, image, createdAt, likes} = post;
-    const {data} = useSWR<FullPost>(`/api/posts/${id}`)
+    const {id, userImage, username, image} = post;
+    const {post : data, postComment} = useFullPost(id);
     const comments = data?.comments;
     console.log(comments);
 
@@ -48,8 +48,8 @@ export default function PostDetail({post} : Props) {
                     )
                 })}
             </ul>
-            <ActionBar likes = {likes} username={username} createdAt={createdAt} />
-            <CommentForm />
+            <ActionBar post={post} onComment = {postComment}/>
+           
         </div>
       </section>
     )

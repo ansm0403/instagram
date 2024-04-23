@@ -1,8 +1,9 @@
 import React from 'react'
 import { authOptions } from '../auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth';
-import { NextResponse } from 'next/server';
-import { getFollowingPostsOf } from '@/app/service/posts';
+import { NextRequest, NextResponse } from 'next/server';
+import { createPost, getFollowingPostsOf } from '@/app/service/posts';
+import { withSessionUser } from '@/app/util/session';
 
 export async function GET() {
     const session = await getServerSession(authOptions)
@@ -14,4 +15,21 @@ export async function GET() {
 
     return getFollowingPostsOf(user.username)
     .then(data=>NextResponse.json(data))
+}
+
+export async function POST(req : NextRequest) {
+    
+    return withSessionUser(async (user)=>{
+        const form = await req.formData();
+        const text = form.get('text')?.toString();
+        const file = form.get('file') as Blob;
+
+        if(!text || file === undefined) {
+            return new Response('Bad Request', {status : 400});
+        }
+
+        return createPost(user.id, text, file)
+        .then((data => NextResponse.json(data)))
+    })
+    
 }

@@ -3,15 +3,11 @@ import { GridLoader } from 'react-spinners';
 import useSWR from 'swr';
 import { Post } from '../model/post';
 import PostGridCard from './PostGridCard';
+import usePosts from '../hook/posts';
 
-type Props = {
-    username : string;
-    query : string;
-}
-
-export default function PostGrid({username, query} : Props) {
-    const {data : posts, isLoading, error} = useSWR<Post[]>(`/api/users/${username}/${query}`)
-  
+export default function PostGrid() {
+    const {posts, isLoading } = usePosts();
+    console.log(posts);
     return (
         <div className='w-full text-center'>
             {isLoading && <GridLoader />}

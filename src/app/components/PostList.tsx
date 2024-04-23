@@ -1,13 +1,12 @@
 'use client'
 
 import React from 'react'
-import useSWR from 'swr'
-import { Post } from '../model/post'
 import { GridLoader } from 'react-spinners'
 import PostListCard from './PostListCard'
+import usePosts from '../hook/posts'
 
 export default function PostList() {
-  const {data : posts, isLoading} = useSWR<Post[]>('/api/posts')
+  const {posts, isLoading} = usePosts()
   // console.log(posts)
   return (
     <section>
