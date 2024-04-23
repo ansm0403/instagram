@@ -38,8 +38,7 @@ export async function getFollowingPostsOf(username : string){
 
 export async function getPost(id : string) {
     return client.fetch(
-        `
-        *[_type == "post" && _id == "${id}"][0]{
+        ` *[_type == "post" && _id == "${id}"][0]{
             ...,
             "username" : author->username,
             "userImage" : author->image,
@@ -47,20 +46,17 @@ export async function getPost(id : string) {
             "likes" : likes[]->username,
             comments[]{comment, "username":author->username, "image":author->image},
             "id" : _id,
-            "createdAt" : _createdAt}
-        `
+            "createdAt" : _createdAt}`
     ).then(post=>
         ({...post, image : urlFor(post.image)}))
 }
 
 export async function getPostsOf(username:string){
     return client.fetch(
-        `
-            *[_type == "post" && author->username == "${username}"]
-            | order(_createdAt desc){
-                ${simplePostProjection}
-            }
-        `
+        `*[_type == "post" && author->username == "${username}"]
+        | order(_createdAt desc){
+            ${simplePostProjection}
+        }`
     ).then(mapPosts)
 }
 

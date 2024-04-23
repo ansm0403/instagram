@@ -24,7 +24,7 @@ export default function Avatar({
 }
 
 function getContainerStyle(size : string, highlight : boolean): string {
-  const baseStyle = 'rounded-full flex justify-center ';
+  const baseStyle = 'rounded-full flex justify-center items-center';
   const highlightStyle = highlight
   ? 'bg-gradient-to-bl from-fuchsia-600 via-rose-500 to-amber-300'
   : '';
@@ -46,7 +46,7 @@ function getSize(size : string) : ImageSize{
     case 'large' : 
       return {container : "w-[68px] h-[68px]", image : "w-16 h-16 p-[0.2rem]"};
     case 'x-large' : 
-      return {container : "w-[142px] h-[142px]", image : "w-[138] h-[138] p-[0.3rem]"};
+      return {container : "w-[142px] h-[142px]", image : "w-[138px] h-[138px] p-[0.3rem]"};
     default : 
       throw new Error(`size error`)
   }
