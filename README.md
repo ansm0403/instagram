@@ -1,6 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# instagram
+next.js 를 이용한 인스타그램 클론코딩입니다.
 
-## Getting Started
+---
+
+## 프로젝트 소개
+Next.js 의 숙련도를 올리고 풀스택 프레임워크의 유용함을 직접 느끼기 위하여 Sanity와 Next Auth를 이용하여 백엔드 서버를 구축하였습니다.
+
+---
+## 개발자 소개
+* 안상문 : 프론트엔드 개발자  kirianir@naver.com
+
+## Stacks
+
+### Enviornment
+
+<span style ="color : red"> Git </span>
+<span style ="color : white; background-color : black;"> GitHub </span>
+<span style ="color : white; background-color : black;"> Visual Studio code </span>
+
+### Config
+
+### Development
+
+
+
+---
 
 First, run the development server:
 
