@@ -1,4 +1,5 @@
 import React from 'react'
+import Image from 'next/image'
 
 type Props = {
   image? : string | null;
@@ -13,11 +14,13 @@ export default function Avatar({
 }: Props) {
   return (
     <div className = {getContainerStyle(size, highlight)}>
-        <img 
+        <Image 
             className = {`bg-white object-cover rounded-full  ${getSize(size).image}`}
             alt = 'user profile' 
-            src = {image ?? undefined} 
+            src = {image ?? ""} 
             referrerPolicy='no-referrer'
+            width = {30}
+            height={30}
         />
     </div>
   )

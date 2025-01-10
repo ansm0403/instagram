@@ -1,5 +1,5 @@
 import React from 'react'
-import { authOptions } from '../auth/[...nextauth]/route'
+import { authOptions } from "@/app/auth/authOptions";
 import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
 import { createPost, getFollowingPostsOf } from '@/app/service/posts';
