@@ -1,6 +1,6 @@
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
-import { authOptions } from "../auth/[...nextauth]/route";
+
 import { dislikePost, likePost } from "@/app/service/posts";
 import { withSessionUser } from "@/app/util/session";
 
