@@ -1,10 +1,10 @@
 import React from 'react'
-import { authOptions } from '../../api/auth/[...nextauth]/route'
 import { getServerSession } from 'next-auth'
 import { redirect } from 'next/navigation';
 import { getProviders } from 'next-auth/react';
 import Signin from '@/app/components/Signin';
 import { Metadata } from 'next';
+import { authOptions } from '../authOptions';
 
 export const metadata : Metadata = {
   title : 'Sign In',
