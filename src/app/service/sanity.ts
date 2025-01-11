@@ -1,14 +1,14 @@
 import { createClient } from "@sanity/client";
 import  imageUrlBuilder from "@sanity/image-url";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types"
-import { dataset, projectId, token } from "../env/env";
+
 
 export const client = createClient({
-    projectId, 
-    dataset,
+    projectId : process.env.SANITY_PROJECT_ID,
+    dataset : process.env.SANITY_DATASET,
     useCdn : false,
     apiVersion : '2024-04-06',
-    token,
+    token : process.env.SANITY_SECRET_TOKEN
 })
 
 const builder = imageUrlBuilder(client)
@@ -17,4 +17,4 @@ export function urlFor(source : SanityImageSource){
     return builder.image(source).width(800).url();
 }
 
-export const assetsURL = `https://${process.env.NEXT_PUBLIC_SANITY_PROJECT_ID}.api.sanity.io/v2021-03-25/assets/images/${process.env.NEXT_PUBLIC_SANITY_DATASET}`
+export const assetsURL = `https://${process.env.SANITY_PROJECT_ID}.api.sanity.io/v2021-03-25/assets/images/${process.env.SANITY_DATASET}`
