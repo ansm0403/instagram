@@ -4,11 +4,11 @@ import { SanityImageSource } from "@sanity/image-url/lib/types/types"
 
 
 export const client = createClient({
-    projectId : process.env.NEXT_PUBLIC_SANITY_PROJECT_ID as string | " ",
-    dataset : process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN as string | " ",
+    projectId : process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
+    dataset : process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN,
     useCdn : false,
     apiVersion : '2024-04-06',
-    token : process.env.NEXT_PUBLIC_SANITY_DATASET as string | " ",
+    token : process.env.NEXT_PUBLIC_SANITY_DATASET,
 })
 
 const builder = imageUrlBuilder(client)
