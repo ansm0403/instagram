@@ -14,11 +14,12 @@ jobs:
         with:
           node-version: '20' 
       - run: npm install
+
       - run: CI='false' npm run build
         env: 
-          GOOGLE_OAUTH_ID : ${{secrets.GOOGLE_OAUTH_ID}}
-          GOOGLE_OAUTH_SECRET : ${{secrets.GOOGLE_OAUTH_SECRET}}
+          GOOGLE_OAUTH_ID : ${{secrets.NEXT_PUBLIC_GOOGLE_OAUTH_ID}}
+          GOOGLE_OAUTH_SECRET : ${{secrets.NEXT_PUBLIC_GOOGLE_OAUTH_SECRET}}
           NEXTAUTH_SECRET : ${{secrets.NEXTAUTH_SECRET}}
-          SANITY_PROJECT_ID : ${{secrets.SANITY_PROJECT_ID}}
-          SANITY_DATASET : ${{secrets.SANITY_DATASET}}
-          SANITY_SECRET_TOKEN : ${{secrets.SANITY_SECRET_TOKEN}}
+          SANITY_PROJECT_ID : ${{secrets.NEXT_PUBLIC_SANITY_PROJECT_ID}}
+          SANITY_DATASET : ${{secrets.NEXT_PUBLIC_SANITY_DATASET}}
+          SANITY_SECRET_TOKEN : ${{secrets.NEXT_PUBLIC_SANITY_SECRET_TOKEN}}
