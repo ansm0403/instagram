@@ -8,7 +8,7 @@ type Props = {
 
 export default function AuthContext({children} : Props){
     return ( 
-    <SessionProvider basePath="localhost:3000">
+    <SessionProvider>
         {children}
     </SessionProvider>
     )
