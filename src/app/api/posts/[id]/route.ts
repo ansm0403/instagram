@@ -1,8 +1,6 @@
 import React from 'react'
-import { getServerSession } from 'next-auth';
 import { NextRequest, NextResponse } from 'next/server';
-import { getFollowingPostsOf, getPost } from '@/app/service/posts';
-import { authOptions } from '../../auth/[...nextauth]/route';
+import { getPost } from '@/app/service/posts';
 import { withSessionUser } from '@/app/util/session';
 
 type Context = {

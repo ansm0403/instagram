@@ -11,17 +11,22 @@
   "dependencies": {
     "@sanity/client": "^6.15.11",
     "@sanity/image-url": "^1.0.2",
+    "@sanity/vision": "^3.36.2",
     "next": "14.1.4",
     "next-auth": "^4.24.7",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^5.0.1",
+    "react-is": "^18.2.0",
     "react-multi-carousel": "^2.8.5",
     "react-spinners": "^0.13.8",
+    "sanity": "^3.36.2",
+    "styled-components": "^6.0.7",
     "swr": "^2.2.5",
     "timeago.js": "^4.0.2"
   },
   "devDependencies": {
+    "@sanity/eslint-config-studio": "^3.0.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -29,6 +34,7 @@
     "eslint": "^8",
     "eslint-config-next": "14.1.4",
     "postcss": "^8",
+    "prettier": "^3.0.2",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }
