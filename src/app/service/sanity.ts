@@ -11,6 +11,7 @@ export const client = createClient({
     token : process.env.NEXT_PUBLIC_SANITY_SECRET_TOKEN,
 })
 
+
 const builder = imageUrlBuilder(client)
 
 export function urlFor(source : SanityImageSource){
